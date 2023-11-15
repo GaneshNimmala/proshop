@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+
 import {
   Row,
   Col,
@@ -9,13 +10,17 @@ import {
   Button,
   ListGroupItem,
 } from "react-bootstrap";
+
 import Rating from "../components/Rating";
 import axios from "axios";
 
 function ProductScreen() {
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   const { id: productId } = useParams();
+  console.log(productId);
+
   useEffect(() => {
     async function fetchProducts() {
       setIsLoading(true);
